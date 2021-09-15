@@ -10,7 +10,7 @@ const bot = new App({
 });
 
 // Listens to incoming messages that contain "hello"
-bot.message("hello", async ({ message, say }) => {
+bot.message(`hello`, async ({ message, say }) => {
   // say() sends a message to the channel where the event was triggered
   await say({
     blocks: [
@@ -40,7 +40,21 @@ bot.action("button_click", async ({ body, ack, say }) => {
   await say(`<@${body.user.id}> clicked the button`);
 });
 
-const PORT = process.env.PORT || 4390;
+// Event test
+// Bot says hello when it is mentioned
+bot.event(`app_mention`, async ({ event, client }) => {
+  try {
+    // Call chat.postMessage with the built-in client
+    console.log(event);
+    const result = await client.chat.postMessage({
+      channel: event.channel,
+      text: `Hello, <@${event.user}>`,
+    });
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+});
 
 bot.message(/weather/i, async ({ message, say }) => {
   let city = message.text.split(" ")[1];
