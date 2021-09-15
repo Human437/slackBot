@@ -1,6 +1,7 @@
 const dotenv = require("dotenv");
 const { App } = require("@slack/bolt");
 const axios = require("axios");
+const getCatImg = require("./modules/getCatImg");
 
 dotenv.config();
 
@@ -64,6 +65,27 @@ bot.command("/hello-world", async ({ command, ack, respond }) => {
   await ack();
   console.log(command);
   await respond(`Hello World`);
+});
+
+// Command to get a cat image
+bot.command("/get-cat", async ({ command, ack, respond }) => {
+  // Acknowledge command request
+  await ack();
+  const catImgUrl = await getCatImg();
+  await respond({
+    blocks: [
+      {
+        type: "image",
+        title: {
+          type: "plain_text",
+          text: "Cat image",
+          emoji: true,
+        },
+        image_url: catImgUrl,
+        alt_text: "alt text for image",
+      },
+    ],
+  });
 });
 
 bot.message(/weather/i, async ({ message, say }) => {
