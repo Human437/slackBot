@@ -41,6 +41,7 @@ bot.action("button_click", async ({ body, ack, say }) => {
 });
 
 // Event test
+// You need to subscribe to the event in "event subscription" for the app to see the event
 // Bot says hello when it is mentioned
 bot.event(`app_mention`, async ({ event, client }) => {
   try {
@@ -54,6 +55,15 @@ bot.event(`app_mention`, async ({ event, client }) => {
   } catch (error) {
     console.error(error);
   }
+});
+
+// Command test
+// You must setup the command, in this case "hello-world", in the app dashboard in order for the command to work
+bot.command("/hello-world", async ({ command, ack, respond }) => {
+  // Acknowledge command request
+  await ack();
+  console.log(command);
+  await respond(`Hello World`);
 });
 
 bot.message(/weather/i, async ({ message, say }) => {
