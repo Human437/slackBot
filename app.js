@@ -1,8 +1,8 @@
 const dotenv = require("dotenv");
 const { App } = require("@slack/bolt");
-const axios = require("axios");
 const getCatImg = require("./modules/getCatImg");
 const getWeather = require("./modules/getWeather");
+const coinFlip = require("./modules/coinFlip");
 
 dotenv.config();
 
@@ -136,41 +136,7 @@ bot.command("/weather", async ({ command, ack, respond }) => {
 // Flips a coin
 bot.command("/coin-flip", async ({ command, ack, respond }) => {
   await ack();
-  const headResponse = {
-    type: "section",
-    text: {
-      type: "mrkdwn",
-      text: "*Heads*",
-    },
-    accessory: {
-      type: "image",
-      image_url:
-        "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages.clipartpanda.com%2Fquarter-clipart-quarter_1213.png&f=1&nofb=1",
-      alt_text: "alt text for quarter heads",
-    },
-  };
-  const tailResponse = {
-    type: "section",
-    text: {
-      type: "mrkdwn",
-      text: "*Tails*",
-    },
-    accessory: {
-      type: "image",
-      image_url:
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fresearchmaniacs.com%2FRandom%2FImages%2FQuarter-Tails.png&f=1&nofb=1",
-      alt_text: "alt text for quarter heads",
-    },
-  };
-
-  const value = Math.floor(Math.random() * 2);
-  let response;
-  if (value == 1) {
-    response = headResponse;
-  } else {
-    response = tailResponse;
-  }
-
+  const response = await coinFlip();
   await respond({
     blocks: [response],
   });
