@@ -74,6 +74,7 @@ bot.command("/get-cat", async ({ command, ack, respond }) => {
   await ack();
   const catImgUrl = await getCatImg();
   await respond({
+    response_type: "in_channel", // makes a command response visible to everyone
     blocks: [
       {
         type: "image",
