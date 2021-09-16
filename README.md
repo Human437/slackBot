@@ -71,4 +71,4 @@ A bot that can
 
 Once installed in your slack workspace and invited to a channel, you can use two commands "/weather {city name}" and "/get-cat" to get the result from you want the bot.
 
-<a data-flickr-embed="true" href="https://www.flickr.com/photos/193789791@N03/51484511794/in/dateposted-public/" title="testBot"><img src="https://live.staticflickr.com/65535/51484511794_6e15049f43_o.gif" width="600" height="647" alt="testBot"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+<img src="https://live.staticflickr.com/65535/51484511794_6e15049f43_o.gif" width="600" height="647" alt="testBot">
