@@ -74,3 +74,7 @@ A bot that can
 Once installed in your slack workspace and invited to a channel, you can use three commands, "/weather {city name}", "/get-cat" and "/coin-flip" to get the result from you want the bot.
 
 <img src="https://live.staticflickr.com/65535/51484831325_6e6dd0357a_o.gif" width="640" height="633" alt="testBot">
+
+## Heroku Deployment
+
+If you want the bot to be constantly running and not have your computer on 24/7, you can deploy the bot to Heroku. You will need to have an account with Heroku in order to do so. Slack has a great guide that details the whole process [here](https://slack.dev/bolt-js/deployments/heroku).
