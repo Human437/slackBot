@@ -6,8 +6,8 @@
 
 A bot that can 
 
-1. fetch random cat picture 
-2. get current weather of a city
+1. fetch a random cat picture 
+2. get the current weather of a city
 3. do a coin-flip
 
 ## Requirements
@@ -61,13 +61,13 @@ A bot that can
    2. SLACK_SIGNING_SECRET=your signing secret<sup>2</sup>
    3. WEATHER_TOKEN=your weather API token<sup>3</sup>
 
-   <sup>1</sup>The Bot User Oauth Token showed on oAuth & Permissions page, starts with oxob.
+   <sup>1</sup>The Bot User Oauth Token showed on oAuth & Permissions page, starts with xoxb.
 
    <sup>2</sup>The Signing Secret showed on Basic Information page, in the App Credentials section.
 
-   <sup>3</sup>The API token get from [Weather API](https://openweathermap.org/api) through signing up.
+   <sup>3</sup>The API token is from [Weather API](https://openweathermap.org/api), which you can get by signing up.
 
-8. Start the bot using `npm start:dev` in the terminal.
+8. Start the bot using `npm run start:dev` for developement or `npm start` for production in the terminal.
 
 ## Usage
 
